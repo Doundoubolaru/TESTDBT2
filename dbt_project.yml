@@ -13,12 +13,16 @@ seeds:
   # Builds seeds into '<your_schema_name>_raw'
   jaffle_shop:
     +schema: raw
-
+    statuts_commande:
+       +column_types:
+        statut: varchar
+        libelle: varchar
+        est_paye: boolean
 models:
   jaffle_shop:
     #+static_analysis: strict
     # Materialize staging models as views, and marts as tables
     staging:
-      +materialized: view
+      +materialized : view
     marts:
       +materialized: table
